@@ -7,9 +7,18 @@
 </head>
 <body>
     <form method="post">
-        <input type="text" name="" placeholder="Enter ...">
+        <input type="text" name="news" placeholder="Enter ...">
         <button type="submit">Enter</button>
     </form>
-    
-</body>
+      % if news %
+        { % if news.error %}
+            <p>{{news.error}}</p>
+        { % else %}
+            <h2>{{news.title}}</h2>
+            <p><strong>Author:</strong> {{ news.author }}</p>
+            <p><strong>Source:</strong> {{ news.name }}</p>
+            <p>{{ news.description }}</p>
+        {% endif %}
+    {% endif %}
+    </body>
 </html>
